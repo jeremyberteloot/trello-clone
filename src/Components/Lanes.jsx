@@ -36,6 +36,7 @@ const Lanes = (props) => {
       });
 
     lanesRef.on("value", (snapshot) => {
+      if (!snapshot.exists()) return;
       let lanesToArray = Object.values(snapshot.val());
 
       lanesToArray = lanesToArray.map((lane) => {
