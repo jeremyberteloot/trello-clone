@@ -2,8 +2,14 @@ import React, { useState, useContext } from "react";
 import PropTypes from "prop-types";
 import NewCard from "./NewCard";
 import NewCardForm from "./NewCardForm";
-import Cards from "./Cards";
+import Card from "./Card";
 import { FirebaseContext } from "../firebase-context";
+import { Droppable } from "react-beautiful-dnd";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  min-height: 2rem;
+`;
 
 const Lane = ({ lane }) => {
   const firebase = useContext(FirebaseContext);
@@ -50,7 +56,20 @@ const Lane = ({ lane }) => {
           </svg>
         </button>
       </div>
-      <Cards lane={lane} cards={lane.cards} />
+      <Droppable droppableId={lane.id + ""}>
+        {(provided, snapshot) => (
+          <Wrapper
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+            isDraggingOver={snapshot.isDraggingOver}
+          >
+            {lane.cards.map((card, index) => (
+              <Card key={card.id} lane={lane} card={card} index={index} />
+            ))}
+            {provided.placeholder}
+          </Wrapper>
+        )}
+      </Droppable>
       {newCardFormMode ? (
         <NewCardForm submitNewCard={handleSubmitNewCard} />
       ) : (
