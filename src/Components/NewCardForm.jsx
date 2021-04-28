@@ -13,8 +13,9 @@ const NewCardForm = ({ submitNewCard }) => {
 
   return (
     <form className="w-full" onSubmit={handleSubmit}>
-      <textarea
-        resize="false"
+      <input
+        type="text"
+        autoFocus
         value={cardContent}
         onChange={(event) => setCardContent(event.target.value)}
         className="w-full p-2 mb-2 border-2 border-gray-300 text-gray-700 rounded"

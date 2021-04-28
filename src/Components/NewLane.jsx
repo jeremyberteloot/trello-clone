@@ -41,6 +41,7 @@ const NewLane = () => {
     <form onSubmit={makeNewLane} className="flex flex-col">
       <input
         type="text"
+        autoFocus
         placeholder="Enter a name for your lane..."
         value={laneName}
         onChange={(event) => setLaneName(event.target.value)}
