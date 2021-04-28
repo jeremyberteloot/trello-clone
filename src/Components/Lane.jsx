@@ -31,7 +31,7 @@ const Lane = ({ lane }) => {
   return (
     <div
       style={{ maxHeight: "calc(100vh - 8rem)" }}
-      className="overflow-y-auto overflow-x-hidden flex flex-col flex-shrink-0 w-64 p-4 bg-gray-50 rounded shadow-sm self-start mx-4"
+      className="overflow-y-auto overflow-x-hidden flex flex-col flex-shrink-0 w-64 p-4 bg-gray-50 rounded shadow-sm self-start mx-2"
     >
       <div className="text-xs uppercase text-gray-400 font-bold flex items-center justify-between">
         <span>{lane.name}</span>
