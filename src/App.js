@@ -1,12 +1,19 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Lanes from "./Components/Lanes";
+import Header from "./Components/Header";
+import { FirebaseInstance } from "./firebase";
+import { FirebaseContext } from "./firebase-context";
 
 function App() {
   return (
-    <div className="h-full w-full bg-purple-500 p-4">
-      <Lanes />
-    </div>
+    <FirebaseContext.Provider value={FirebaseInstance}>
+      <div className="h-full w-full overflow-x-auto overflow-y-hidden bg-purple-500">
+        <Header />
+        <div className="p-4">
+          <Lanes />
+        </div>
+      </div>
+    </FirebaseContext.Provider>
   );
 }
 

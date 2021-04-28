@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { FirebaseContext } from "../firebase-context";
 
 const NewLane = () => {
+  const firebase = useContext(FirebaseContext);
   const [ctaMode, setCtaMode] = useState(true);
   const [classList, setClassList] = useState(
-    "h-14 w-64 p-4 bg-gray-800 bg-opacity-30 rounded shadow-sm mx-4 text-white font-bold text-center cursor-pointer"
+    "flex-shrink-0 h-14 w-64 p-4 bg-gray-800 bg-opacity-30 rounded shadow-sm mx-4 text-white font-bold text-center cursor-pointer"
   );
   const [laneName, setLaneName] = useState("");
 
@@ -13,14 +15,24 @@ const NewLane = () => {
     setCtaMode(false);
 
     setClassList(
-      "min-h-14 w-64 p-2 bg-white rounded shadow-sm text-gray font-bold text-center cursor-pointer self-start"
+      "flex-shrink-0 min-h-14 w-64 p-2 bg-white rounded shadow-sm text-gray font-bold text-center cursor-pointer self-start"
     );
   };
 
   const makeNewLane = (event) => {
     event.preventDefault();
     event.stopPropagation();
-    console.log("making new lane", laneName);
+    const id = Date.now();
+    firebase.ref(`/lanes/${id}`).set({
+      id,
+      name: laneName,
+      cards: [],
+    });
+    setLaneName("");
+    setCtaMode(true);
+    setClassList(
+      "flex-shrink-0 h-14 w-64 p-4 bg-gray-800 bg-opacity-30 rounded shadow-sm mx-4 text-white font-bold text-center cursor-pointer"
+    );
   };
 
   const withCtaMode = <span>+ Add a new lane</span>;

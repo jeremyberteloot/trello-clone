@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="362px" height="107px" viewBox="0 0 362 107" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>trolle</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="trolle">
+            <rect id="Rectangle" fill="#FF4757" x="0" y="19" width="68" height="68" rx="8"></rect>
+            <text id="Trollé" font-family="Montserrat-Bold, Montserrat" font-size="80" font-weight="bold" letter-spacing="1.7" fill="#FFFFFF">
+                <tspan x="88.76" y="77">Trollé</tspan>
+            </text>
+            <rect id="Rectangle" fill="#FFFFFF" x="10" y="27" width="21" height="31" rx="2"></rect>
+            <rect id="Rectangle" fill="#FFFFFF" x="39" y="27" width="21" height="50" rx="2"></rect>
+        </g>
+    </g>
+</svg>
